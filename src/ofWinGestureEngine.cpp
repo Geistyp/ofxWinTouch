@@ -61,6 +61,7 @@ void ofWinGestureEngine::ProcessMove(const LONG ldx,const LONG ldy)
 {
     if(_ofAppPtr)
     {
+		_ofAppPtr->FingerMove(ldx, ldy);
     }
 }
 
@@ -73,6 +74,7 @@ void ofWinGestureEngine::ProcessRotate(const double dAngle,const LONG lOx,const 
 {
     if(_ofAppPtr)
     {
+		_ofAppPtr->FingerRotate(dAngle, lOx, lOy);
     }
 }
 

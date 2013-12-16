@@ -46,6 +46,21 @@ LRESULT CGestureEngine::WndProc(HWND hWnd, WPARAM wParam, LPARAM lParam)\
     POINT ptZoomCenter;
     double k;
 
+	{
+		// Some gestures, such as the rotate gesture, are not enabled by default.
+		// http://msdn.microsoft.com/en-us/library/windows/desktop/dd693088(v=vs.85).aspx
+		GESTURECONFIG gc;
+		gc.dwID    = GID_ROTATE; // The gesture identifier.
+		gc.dwWant  = GC_ROTATE;  // The gesture command you are enabling for GID_ROTATE.
+		gc.dwBlock = 0;          // Don't block anything.
+		UINT uiGcs = 1;          // The number of gestures being set.
+
+		BOOL bResult = SetGestureConfig(hWnd, 0, uiGcs, &gc, sizeof(GESTURECONFIG));
+		if(!bResult) {
+			// Something went wrong, report the error using your preferred logging.
+		}
+	}
+
 //Exercise2-Task2-Step1 
     // read information about gesture through GESTURECOMMANDINFO structure
     GESTUREINFO  gi;

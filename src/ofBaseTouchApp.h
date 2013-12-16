@@ -20,6 +20,8 @@ public:
     
     virtual void twoFingerTap(){}
     virtual void twoFingerZoom(double dZoomFactor,const LONG lZx,const LONG lZy) {}
+	virtual void FingerRotate(double dAngle,const LONG lOx,const LONG lOy){}
+	virtual void FingerMove(const LONG ldx, const LONG ldy){}
 
 	virtual void touchDown(int x, int y, int id) {};
 	virtual void touchMoved(int x, int y, int id) {};
